@@ -4,6 +4,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
+  Navigate,
 } from "react-router-dom";
 
 import Login from "./pages/Auth/Login";
@@ -11,10 +12,12 @@ import SignUp from "./pages/Auth/SignUp";
 import Home from "./pages/Dashboard/Home";
 import Income from "./pages/Dashboard/Income";
 import Expense from "./pages/Dashboard/Expense";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
     <UserProvider>
+      <div>
       <Router>
         <Routes>
           <Route path="/" element={<Login />} />
@@ -25,6 +28,16 @@ const App = () => {
           <Route path="/expense" element={<Expense />} />
         </Routes>
       </Router>
+      </div>
+
+      <Toaster 
+        toastOptions={{
+          className: "",
+          style: {
+            fontSize:'13px'
+          },
+        }}
+      />
     </UserProvider>
   );
 };
