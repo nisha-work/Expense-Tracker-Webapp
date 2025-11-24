@@ -8,7 +8,11 @@ const DeleteAlert = ({content, onDelete}) => {
         <div className="fex justify-end mt-6">
             <button
                 type="button"
-                className
+                className="add-btn add-btn-fill"
+                onClick={onDelete}
+            >
+                Delete
+            </button>
         </div>
     </div>
   )
