@@ -4,7 +4,10 @@ import DashboardLayout from '../../components/layouts/DashboardLayout';
 import axiosInstance from '../../utils/axiosInstance';
 import { API_PATHS } from '../../utils/apiPaths';
 import ExpenseOverview from '../../components/Expense/ExpenseOverview';
-
+import AddExpenseForm from '../../components/Expense/AddExpenseForm';
+import Modal from '../../components/Modal';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Expense = () => {
   useUserAuth();
 
@@ -92,6 +95,14 @@ const Expense = () => {
             />
           </div>
         </div>
+        
+        <Modal
+          isOpen={openAddExpenseModal}
+          onClose={() => setOpenAddExpenseModal(false)}
+          title="Add Expense"
+        >
+          <AddExpenseForm onAddExpense={handleAddExpense} />
+        </Modal>
       </div>
     </DashboardLayout> 
   );
